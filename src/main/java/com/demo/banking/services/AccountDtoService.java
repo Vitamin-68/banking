@@ -19,11 +19,11 @@ public class AccountDtoService implements AccountDtoServiceImpl {
     return null;
   }
 
-  @Override
-  public List<AccountDto> findByClientIn(Integer id) {
-    List<AccountDto> accountDtos = new ArrayList<>();
-    accountServices.findByClientIn(id)
-        .forEach(la -> accountDtos.add(converter.convertAccountToDto(la)));
-    return accountDtos;
-  }
+//  @Override
+//  public List<AccountDto> findByClientIn(Integer id) {
+//    List<AccountDto> accountDtos = new ArrayList<>();
+//    accountServices.findByClientIn(id)
+//        .forEach(la -> accountDtos.add(converter.convertAccountToDto(la)));
+//    return accountDtos;
+//  }
 }

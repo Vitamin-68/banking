@@ -27,9 +27,9 @@ public class AccountController {
     return accountDtoService.create(accountDto);
   }
 
-  @GetMapping("/findByClientId")
-  public List<AccountDto> findById(@RequestParam Integer id) {
-    log.info("Accounts found by ID: " + id);
-    return accountDtoService.findByClientIn(id);
-  }
+//  @GetMapping("/findByClientId")
+//  public List<AccountDto> findById(@RequestParam Integer id) {
+//    log.info("Accounts found by ID: " + id);
+//    return accountDtoService.findByClientIn(id);
+//  }
 }

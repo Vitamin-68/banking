@@ -7,5 +7,5 @@ import java.util.List;
 public interface AccountDtoServiceImpl {
 
   AccountDto create(AccountDto accountDto) throws MyException;
-  List<AccountDto> findByClientIn(Integer id);
+//  List<AccountDto> findByClientIn(Integer id);
 }
