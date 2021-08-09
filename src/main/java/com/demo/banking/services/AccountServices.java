@@ -1,7 +1,9 @@
 package com.demo.banking.services;
 
 import com.demo.banking.entity.Account;
+import com.demo.banking.entity.Client;
 import com.demo.banking.repository.AccountRepo;
+import com.demo.banking.repository.ClientRepo;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,24 +29,21 @@ public class AccountServices {
 //    return la;
 //  }
 
-  public Account findById(Integer id) {
-    Optional<Account> result = accountRepo.findById(id);
-    Account account = new Account();
-    if (result.isPresent()) {
-      account = result.get();
-    }
-    return account;
+  List<Account> findByClientIn(Integer id) {
+
+    List<Account> accounts = accountRepo.findByClientIn(accountRepo.findById(1).get());
+    return accounts;
   }
 
-  public Account update(Account account) {
-    Account updAccount = new Account();
-    Optional<Account> result = accountRepo.findById(account.getId());
-    if (result.isPresent()) {
-      accountRepo.save(account);
-      updAccount = account;
-    }
-    return updAccount;
-  }
+//  public Account update(Account account) {
+//    Account updAccount = new Account();
+//    Optional<Account> result = accountRepo.findById(account.getId());
+//    if (result.isPresent()) {
+//      accountRepo.save(account);
+//      updAccount = account;
+//    }
+//    return updAccount;
+//  }
 
   public Account delete(Account account) {
     Optional<Account> result = accountRepo.findById(account.getId());

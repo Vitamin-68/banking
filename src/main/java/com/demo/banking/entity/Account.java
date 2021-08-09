@@ -25,6 +25,9 @@ public class Account {
   @Column(name = "id", unique = true, nullable = false)
   private Integer id;
 
+  @Column(name = "account_num")
+  private Long accountNum;
+
   @Column(name = "type")
   @Enumerated(EnumType.STRING)
   private AccountType type;

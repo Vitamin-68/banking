@@ -42,20 +42,23 @@ public class BankingApplication {
 		client2.setLastName("Fam2");
 
 		Account account1 = new Account();
-		account1.setBalance(5000.00);
+		account1.setAccountNum(123456789L);
 		account1.setType(AccountType.CARD);
+		account1.setBalance(5000.00);
 		account1.setClient(client1);
 
 		Account account11 = new Account();
-		account11.setBalance(10000.00);
+		account11.setAccountNum(987654321L);
 		account11.setType(AccountType.SIMPLE);
+		account11.setBalance(10000.00);
 		account11.setClient(client1);
 //		System.out.println(account11);
 //		System.out.println();
 
 		Account account2 = new Account();
-		account2.setBalance(15000.00);
+		account2.setAccountNum(555L);
 		account2.setType(AccountType.CARD);
+		account2.setBalance(15000.00);
 		account2.setClient(client2);
 //
 //		List<Account> cl1 = new ArrayList<>();
