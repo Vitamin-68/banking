@@ -1,6 +1,7 @@
-package com.demo.banking.services;
+package com.demo.banking.dao_service;
 
-import com.demo.banking.entity.Client;
+import com.demo.banking.dao_entity.Account;
+import com.demo.banking.dao_entity.Client;
 import com.demo.banking.repository.ClientRepo;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +30,17 @@ public class ClientServices {
       client = result.get();
     }
     return client;
+  }
+
+  public Client updateAcc(Client client, List<Account> accounts) {
+    int i = 0;
+    while (i < accounts.size()) {
+      accounts.get(i).setClient(client);
+      i++;
+    }
+    client.setListAccounts(accounts);
+
+    return clientRepo.saveAndFlush(client);
   }
 
  }

@@ -1,8 +1,10 @@
-package com.demo.banking.services;
+package com.demo.banking.dto_service;
 
-import com.demo.banking.dto.ClientDto;
-import com.demo.banking.entity.Client;
+import com.demo.banking.dto_entity.ClientDto;
+import com.demo.banking.dao_entity.Client;
 import com.demo.banking.exception.MyException;
+import com.demo.banking.fasade.EntityConverter;
+import com.demo.banking.dao_service.ClientServices;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,8 @@ public class ClientDtoService implements ClientDtoServiceImpl {
   public ClientDto create(ClientDto clientDto) throws MyException {
     validateClientDto(clientDto);
     Client clientCrtd = clientServices.create(converter.convertDtoToClient(clientDto));
-    return converter.convertClientToDto(clientCrtd);
+    Client clientUpdt = clientServices.updateAcc(clientCrtd, converter.convertListAccountDtoToListAccount(clientDto.getListAccounts()));
+    return converter.convertClientToDto(clientUpdt);
   }
 
   @Override

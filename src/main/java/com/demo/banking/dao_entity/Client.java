@@ -1,4 +1,4 @@
-package com.demo.banking.entity;
+package com.demo.banking.dao_entity;
 
 import java.util.List;
 import javax.persistence.CascadeType;

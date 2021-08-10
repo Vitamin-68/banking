@@ -1,8 +1,7 @@
-package com.demo.banking.services;
+package com.demo.banking.dto_service;
 
 import com.demo.banking.exception.MyException;
-import com.demo.banking.dto.ClientDto;
-import java.util.List;
+import com.demo.banking.dto_entity.ClientDto;
 
 public interface ClientDtoServiceImpl {
 

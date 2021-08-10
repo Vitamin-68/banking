@@ -1,6 +1,6 @@
 package com.demo.banking.exception;
 
-public class MyException extends Exception{
+public class MyException extends RuntimeException{
 
   private String message;
 

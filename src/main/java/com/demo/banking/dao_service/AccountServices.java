@@ -1,11 +1,8 @@
-package com.demo.banking.services;
+package com.demo.banking.dao_service;
 
-import com.demo.banking.entity.Account;
-import com.demo.banking.entity.Client;
+import com.demo.banking.dao_entity.Account;
 import com.demo.banking.repository.AccountRepo;
-import com.demo.banking.repository.ClientRepo;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,16 +21,21 @@ public class AccountServices {
     return account;
   }
 
+  public List<Account> create(List<Account> accounts) {
+    accountRepo.saveAll(accounts);
+    return accounts;
+  }
+
 //  public List<Account> findAllClientId(Integer id) {
 //    List<Account> la = accountRepo.findAllById(id);
 //    return la;
 //  }
 
-  List<Account> findByClientIn(Integer id) {
-
-    List<Account> accounts = accountRepo.findByClientIn(accountRepo.findById(1).get());
-    return accounts;
-  }
+//  List<Account> findByClientIn(Integer id) {
+//
+//    List<Account> accounts = accountRepo.findByClientIn(accountRepo.findById(1).get());
+//    return accounts;
+//  }
 
 //  public Account update(Account account) {
 //    Account updAccount = new Account();
@@ -45,10 +47,10 @@ public class AccountServices {
 //    return updAccount;
 //  }
 
-  public Account delete(Account account) {
-    Optional<Account> result = accountRepo.findById(account.getId());
-    result.ifPresent(accountRepo::delete);
-    return account;
-  }
+//  public Account delete(Account account) {
+//    Optional<Account> result = accountRepo.findById(account.getId());
+//    result.ifPresent(accountRepo::delete);
+//    return account;
+//  }
 
 }

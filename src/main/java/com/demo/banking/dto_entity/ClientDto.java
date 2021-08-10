@@ -1,6 +1,5 @@
-package com.demo.banking.dto;
+package com.demo.banking.dto_entity;
 
-import com.demo.banking.entity.Account;
 import java.util.List;
 import lombok.Data;
 
@@ -10,5 +9,5 @@ public class ClientDto {
   private Integer id;
   private String firstName;
   private String lastName;
-  private List<Account> listAccounts;
+  private List<AccountDto> listAccounts;
 }

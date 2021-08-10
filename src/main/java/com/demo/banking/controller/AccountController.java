@@ -1,16 +1,13 @@
 package com.demo.banking.controller;
 
-import com.demo.banking.dto.AccountDto;
+import com.demo.banking.dto_entity.AccountDto;
 import com.demo.banking.exception.MyException;
-import com.demo.banking.services.AccountDtoService;
-import java.util.List;
+import com.demo.banking.dto_service.AccountDtoService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j

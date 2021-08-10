@@ -1,4 +1,4 @@
-package com.demo.banking.entity;
+package com.demo.banking.dao_entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,11 +26,10 @@ public class Account {
   private Integer id;
 
   @Column(name = "account_num")
-  private Long accountNum;
+  private String accountNum;
 
-  @Column(name = "type")
-  @Enumerated(EnumType.STRING)
-  private AccountType type;
+  @Column(name = "account_type")
+  private String accountType;
 
   @Column(name = "balance")
   private Double balance;

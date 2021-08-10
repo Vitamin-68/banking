@@ -1,14 +1,11 @@
 package com.demo.banking;
 
-import com.demo.banking.entity.Account;
-import com.demo.banking.entity.AccountType;
-import com.demo.banking.entity.Client;
-import com.demo.banking.services.AccountServices;
-import com.demo.banking.services.ClientServices;
+import com.demo.banking.dao_entity.Account;
+import com.demo.banking.dao_entity.AccountType;
+import com.demo.banking.dao_entity.Client;
+import com.demo.banking.dao_service.AccountServices;
+import com.demo.banking.dao_service.ClientServices;
 import java.util.ArrayList;
-import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -42,22 +39,22 @@ public class BankingApplication {
 		client2.setLastName("Fam2");
 
 		Account account1 = new Account();
-		account1.setAccountNum(123456789L);
-		account1.setType(AccountType.CARD);
+		account1.setAccountNum("123");
+		account1.setAccountType("card");
 		account1.setBalance(5000.00);
 		account1.setClient(client1);
 
 		Account account11 = new Account();
-		account11.setAccountNum(987654321L);
-		account11.setType(AccountType.SIMPLE);
+		account11.setAccountNum("987");
+		account11.setAccountType("simple");
 		account11.setBalance(10000.00);
 		account11.setClient(client1);
 //		System.out.println(account11);
 //		System.out.println();
 
 		Account account2 = new Account();
-		account2.setAccountNum(555L);
-		account2.setType(AccountType.CARD);
+		account2.setAccountNum("555");
+		account2.setAccountType("card");
 		account2.setBalance(15000.00);
 		account2.setClient(client2);
 //

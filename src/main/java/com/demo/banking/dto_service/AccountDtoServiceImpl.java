@@ -1,8 +1,7 @@
-package com.demo.banking.services;
+package com.demo.banking.dto_service;
 
-import com.demo.banking.dto.AccountDto;
+import com.demo.banking.dto_entity.AccountDto;
 import com.demo.banking.exception.MyException;
-import java.util.List;
 
 public interface AccountDtoServiceImpl {
 
