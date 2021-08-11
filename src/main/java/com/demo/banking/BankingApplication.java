@@ -1,10 +1,9 @@
 package com.demo.banking;
 
 import com.demo.banking.dao_entity.Account;
-import com.demo.banking.dao_entity.AccountType;
 import com.demo.banking.dao_entity.Client;
-import com.demo.banking.dao_service.AccountServices;
-import com.demo.banking.dao_service.ClientServices;
+import com.demo.banking.dao_service.AccountService;
+import com.demo.banking.dao_service.ClientService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -16,10 +15,10 @@ import org.springframework.context.event.EventListener;
 public class BankingApplication {
 
 	@Autowired
-	private ClientServices clientServices;
+	private ClientService clientServices;
 
 	@Autowired
-	private AccountServices accountServices;
+	private AccountService accountService;
 
 
 	public static void main(String[] args) {
@@ -74,9 +73,9 @@ public class BankingApplication {
 //		System.out.println(client1);
 //		System.out.println(clientServices.findById(1));
 
-		accountServices.create(account1);
-		accountServices.create(account11);
-		accountServices.create(account2);
+		accountService.create(account1);
+		accountService.create(account11);
+		accountService.create(account2);
 
 //		final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 //		Session session = sessionFactory.openSession();

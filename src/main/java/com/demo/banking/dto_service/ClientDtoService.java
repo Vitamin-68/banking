@@ -6,7 +6,7 @@ import com.demo.banking.dto_entity.ClientDto;
 import com.demo.banking.dao_entity.Client;
 import com.demo.banking.exception.MyException;
 import com.demo.banking.fasade.EntityConverter;
-import com.demo.banking.dao_service.ClientServices;
+import com.demo.banking.dao_service.ClientService;
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class ClientDtoService implements ClientDtoServiceImpl {
 
   private final EntityConverter converter;
-  private final ClientServices clientServices;
+  private final ClientService clientServices;
 
   @Override
   public ClientDto create(ClientDto clientDto) throws MyException {
@@ -37,10 +37,11 @@ public class ClientDtoService implements ClientDtoServiceImpl {
   }
 
   @Override
-  public Integer payment(AccountDto accountDto, Map<String, String> inputMap) {
-    Account account = converter.;
-        converter.
-    return null;
+  public Map<String, String> payment(AccountDto accountDtoSrc, AccountDto accountDtoDest, Map<String, String> inputMap) {
+    Account accountSrc = converter.convertDtoToAccount(accountDtoSrc);
+    Account accountDest = converter.convertDtoToAccount(accountDtoDest);
+    clientServices.payment(accountSrc, accountDest, inputMap);
+    return inputMap;
   }
 
   private void validateClientDto(ClientDto clientDto) throws MyException {

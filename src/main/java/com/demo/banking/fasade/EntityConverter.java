@@ -28,7 +28,7 @@ public class EntityConverter {
     return clientDto;
   }
 
-  private List<AccountDto> convertListAccountToListAccountDto(List<Account> accounts) {
+  public List<AccountDto> convertListAccountToListAccountDto(List<Account> accounts) {
     List<AccountDto> accountDtos = new ArrayList<>();
     for (Account account : accounts) {
       AccountDto accDto = new AccountDto();
@@ -53,13 +53,22 @@ public class EntityConverter {
     return accounts;
   }
 
-  private Account convertDtoToAccount(AccountDto accountDto) {
+  public Account convertDtoToAccount(AccountDto accountDto) {
     Account account = new Account();
     account.setId(accountDto.getId());
     account.setAccountNum(accountDto.getAccountNum());
     account.setAccountType(accountDto.getAccountType());
     account.setBalance(accountDto.getBalance());
     return account;
+  }
+
+  public AccountDto convertAccountToDto(Account account) {
+    AccountDto accountDto = new AccountDto();
+    accountDto.setId(account.getId());
+    accountDto.setAccountNum(account.getAccountNum());
+    accountDto.setAccountType(account.getAccountType());
+    accountDto.setBalance(account.getBalance());
+    return accountDto;
   }
 
 }

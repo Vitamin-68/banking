@@ -3,9 +3,9 @@ package com.demo.banking.controller;
 import com.demo.banking.dto_entity.AccountDto;
 import com.demo.banking.dto_entity.ClientDto;
 import com.demo.banking.dto_service.AccountDtoService;
-import com.demo.banking.exception.MyException;
 import com.demo.banking.dto_service.ClientDtoService;
-import java.util.HashMap;
+import com.demo.banking.dto_service.TransactDtoService;
+import com.demo.banking.exception.MyException;
 import java.util.List;
 import java.util.Map;
 import lombok.AllArgsConstructor;
@@ -23,10 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/clients")
 @AllArgsConstructor
-public class ClientController {
+public class Controller {
 
   private final ClientDtoService clientDtoService;
   private final AccountDtoService accountDtoService;
+  private final TransactDtoService transactDtoService;
 
   @PostMapping("/save")
   @ResponseStatus(HttpStatus.CREATED)
@@ -50,9 +51,11 @@ public class ClientController {
   }
 
   @PostMapping("/payment")
-  public Integer payment(@RequestBody Map<String, String> inputMap) {
+  public String payment(@RequestBody Map<String, String> inputMap) {
     log.info("New payment");
-    AccountDto accountDto = accountDtoService.findById(Integer.parseInt(inputMap.get("source_acc_id"))).get(0);
-    return clientDtoService.payment(accountDto, inputMap);
+    AccountDto accountDtoSrc = accountDtoService.findById(Integer.parseInt(inputMap.get("source_acc_id")));
+    AccountDto accountDtoDest = accountDtoService.findById(Integer.parseInt(inputMap.get("dest_acc_id")));
+
+    return clientDtoService.payment(accountDtoSrc, accountDtoDest, inputMap).get("sourse_acc_id");
   }
 }

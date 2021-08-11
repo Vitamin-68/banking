@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientServices {
+public class ClientService {
 
   @Autowired
   private final ClientRepo clientRepo;
 
-  public ClientServices(ClientRepo clientRepo) {
+  public ClientService(ClientRepo clientRepo) {
     this.clientRepo = clientRepo;
   }
 
@@ -44,11 +44,17 @@ public class ClientServices {
     return clientRepo.saveAndFlush(client);
   }
 
-  public Map<String, String> payment(Map<String, String> inputMap) {
-    Account accountSource =
-    Client client = clientRepo.getById(inputMap.get("soursAcc").)
-    if (clientRepo.inputMap.get("amount"))
-    return
+  public Map<String, String> payment(Account sourseAccount, Account destAccount,
+      Map<String, String> inputMap) {
+    double amount = Double.parseDouble(inputMap.get("amount"));
+    double curBalance = sourseAccount.getBalance();
+    if (curBalance >= amount) {
+      sourseAccount.setBalance(curBalance - amount);
+      destAccount.setBalance(destAccount.getBalance() + amount);
+    }
+    return inputMap;
+
+
   }
 
- }
+}
