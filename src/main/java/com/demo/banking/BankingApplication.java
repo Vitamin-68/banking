@@ -1,96 +1,24 @@
 package com.demo.banking;
 
-import com.demo.banking.dao_entity.Account;
-import com.demo.banking.dao_entity.Client;
 import com.demo.banking.dao_service.AccountService;
 import com.demo.banking.dao_service.ClientService;
-import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 
 @SpringBootApplication
 public class BankingApplication {
 
-	@Autowired
-	private ClientService clientServices;
+  @Autowired
+  private ClientService clientServices;
 
-	@Autowired
-	private AccountService accountService;
-
-
-	public static void main(String[] args) {
-		SpringApplication.run(BankingApplication.class, args);
-	}
-
-	@EventListener(ApplicationReadyEvent.class)
-	private void test() {
-
-		Client client1 = new Client();
-		client1.setFirstName("Name1");
-		client1.setLastName("Fam1");
-		client1.setListAccounts(new ArrayList<>());
-
-		Client client2 = new Client();
-		client2.setFirstName("Name2");
-		client2.setLastName("Fam2");
-
-		Account account1 = new Account();
-		account1.setAccountNum("123");
-		account1.setAccountType("card");
-		account1.setBalance(5000.00);
-		account1.setClient(client1);
-
-		Account account11 = new Account();
-		account11.setAccountNum("987");
-		account11.setAccountType("simple");
-		account11.setBalance(10000.00);
-		account11.setClient(client1);
-//		System.out.println(account11);
-//		System.out.println();
-
-		Account account2 = new Account();
-		account2.setAccountNum("555");
-		account2.setAccountType("card");
-		account2.setBalance(15000.00);
-		account2.setClient(client2);
-//
-//		List<Account> cl1 = new ArrayList<>();
-//		cl1.add(account1);
-//		cl1.add(account11);
-//		List<Account> cl2 = new ArrayList<>();
-//		cl2.add(account2);
-//
-//		client1.setListAccounts(cl1);
-//		client2.setListAccounts(cl2);
-//		System.out.println(client1);
-//		System.out.println(account2);
-
-		clientServices.create(client1);
-		clientServices.create(client2);
-//		System.out.println(client1);
-//		System.out.println(clientServices.findById(1));
-
-		accountService.create(account1);
-		accountService.create(account11);
-		accountService.create(account2);
-
-//		final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-//		Session session = sessionFactory.openSession();
-//		session.beginTransaction();
+  @Autowired
+  private AccountService accountService;
 
 
-//		System.out.println(accountServices.findAllClientId(1));
+  public static void main(String[] args) {
+    SpringApplication.run(BankingApplication.class, args);
+  }
 
-////		accountServices.create(account1);
-////		accountServices.create(account11);
-////		accountServices.create(account2);
-//
-//
-////		clientServices.findAll().forEach(System.out::println);
-//
-//
-	}
+
 }
