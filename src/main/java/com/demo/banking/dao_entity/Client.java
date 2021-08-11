@@ -1,5 +1,6 @@
 package com.demo.banking.dao_entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,11 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
-@Table(name = "clients")
+@Table(name = "client")
 @NoArgsConstructor
 public class Client {
 
@@ -30,7 +33,10 @@ public class Client {
   @Column(name = "last_name")
   private String lastName;
 
-  @OneToMany(mappedBy = "client", targetEntity = Account.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "client", targetEntity = Account.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JsonManagedReference
+  @EqualsAndHashCode.Exclude
+  @ToString.Exclude
   private List<Account> listAccounts;
 
 }

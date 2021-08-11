@@ -1,5 +1,6 @@
 package com.demo.banking.dao_entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "accounts")
+@Table(name = "account")
 @NoArgsConstructor
 public class Account {
 
@@ -34,8 +35,9 @@ public class Account {
   @Column(name = "balance")
   private Double balance;
 
-  @ManyToOne(targetEntity = Client.class, fetch = FetchType.LAZY)
+  @ManyToOne(optional = false, fetch = FetchType.LAZY)
   @JoinColumn(name = "client_id")
+  @JsonBackReference
   private Client client;
 
 }

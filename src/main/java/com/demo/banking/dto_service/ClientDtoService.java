@@ -1,10 +1,13 @@
 package com.demo.banking.dto_service;
 
+import com.demo.banking.dao_entity.Account;
+import com.demo.banking.dto_entity.AccountDto;
 import com.demo.banking.dto_entity.ClientDto;
 import com.demo.banking.dao_entity.Client;
 import com.demo.banking.exception.MyException;
 import com.demo.banking.fasade.EntityConverter;
 import com.demo.banking.dao_service.ClientServices;
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +34,13 @@ public class ClientDtoService implements ClientDtoServiceImpl {
       clientDto = converter.convertClientToDto(client);
     }
     return clientDto;
+  }
+
+  @Override
+  public Integer payment(AccountDto accountDto, Map<String, String> inputMap) {
+    Account account = converter.;
+        converter.
+    return null;
   }
 
   private void validateClientDto(ClientDto clientDto) throws MyException {

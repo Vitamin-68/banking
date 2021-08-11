@@ -1,6 +1,5 @@
 package com.demo.banking.dto_entity;
 
-import com.demo.banking.dao_entity.AccountType;
 import lombok.Data;
 
 @Data

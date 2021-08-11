@@ -18,15 +18,10 @@ public class AccountController {
 
   private final AccountDtoService accountDtoService;
 
-  @PostMapping("/saveacc")
-  public AccountDto createAccount(@RequestBody AccountDto accountDto) throws MyException {
-    log.info("New client created: " + accountDto);
-    return accountDtoService.create(accountDto);
-  }
-
-//  @GetMapping("/findByClientId")
-//  public List<AccountDto> findById(@RequestParam Integer id) {
-//    log.info("Accounts found by ID: " + id);
-//    return accountDtoService.findByClientIn(id);
+//  @PostMapping("/saveacc")
+//  public AccountDto createAccount(@RequestBody AccountDto accountDto) throws MyException {
+//    log.info("New client created: " + accountDto);
+//    return accountDtoService.create(accountDto);
 //  }
+
 }

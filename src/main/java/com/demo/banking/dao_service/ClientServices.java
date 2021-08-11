@@ -4,6 +4,7 @@ import com.demo.banking.dao_entity.Account;
 import com.demo.banking.dao_entity.Client;
 import com.demo.banking.repository.ClientRepo;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,13 @@ public class ClientServices {
     client.setListAccounts(accounts);
 
     return clientRepo.saveAndFlush(client);
+  }
+
+  public Map<String, String> payment(Map<String, String> inputMap) {
+    Account accountSource =
+    Client client = clientRepo.getById(inputMap.get("soursAcc").)
+    if (clientRepo.inputMap.get("amount"))
+    return
   }
 
  }

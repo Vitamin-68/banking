@@ -16,8 +16,6 @@ public class EntityConverter {
     client.setId(clientDto.getId());
     client.setFirstName(clientDto.getFirstName());
     client.setLastName(clientDto.getLastName());
-//    client.setListAccounts(convertDtoListAccount(clientDto.getListAccounts()));
-//    client.setListAccounts(convertDtoListAccount(clientDto));
     return client;
   }
 
@@ -26,46 +24,22 @@ public class EntityConverter {
     clientDto.setId(client.getId());
     clientDto.setFirstName(client.getFirstName());
     clientDto.setLastName(client.getLastName());
+    clientDto.setListAccounts(convertListAccountToListAccountDto(client.getListAccounts()));
     return clientDto;
   }
 
-  public Account convertDtoToAccount(AccountDto accountDto) {
-    Account account = new Account();
-    account.setId(accountDto.getId());
-    account.setAccountNum(accountDto.getAccountNum());
-    account.setAccountType(accountDto.getAccountType());
-    account.setBalance(accountDto.getBalance());
-//    account.setClient(accountDto.getClient());
-    return account;
+  private List<AccountDto> convertListAccountToListAccountDto(List<Account> accounts) {
+    List<AccountDto> accountDtos = new ArrayList<>();
+    for (Account account : accounts) {
+      AccountDto accDto = new AccountDto();
+      accDto.setId(account.getId());
+      accDto.setAccountType(account.getAccountType());
+      accDto.setAccountNum(account.getAccountNum());
+      accDto.setBalance(account.getBalance());
+      accountDtos.add(accDto);
+    }
+    return accountDtos;
   }
-
-  public AccountDto convertAccountToDto(Account account) {
-    AccountDto accountDto = new AccountDto();
-    accountDto.setId(account.getId());
-    accountDto.setAccountNum(account.getAccountNum());
-    accountDto.setAccountType(account.getAccountType());
-    accountDto.setBalance(account.getBalance());
-//    accountDto.setClient(account.getClient());
-    return accountDto;
-  }
-
-//  List<Account> convertDtoListAccount(List<AccountDto> accountDtos) {
-//  List<Account> convertDtoListAccount(ClientDto clientDto) {
-//    List<AccountDto> accountDtos = clientDto.getListAccounts();
-//    List<Account> accounts = new ArrayList<>();
-//    Account acc = new Account();
-//    for (AccountDto accountDto : accountDtos) {
-////      acc.setId(accountDtos.get(i).getId());
-//      acc.setAccountNum(accountDto.getAccountNum());
-//      acc.setType(accountDto.getType());
-//      acc.setBalance(accountDto.getBalance());
-//
-//      acc.setClient(accountDto.getClient());
-//      accounts.add(acc);
-//
-//    }
-//    return  accounts;
-//  }
 
   public List<Account> convertListAccountDtoToListAccount(List<AccountDto> accountDtos) {
     List<Account> accounts = new ArrayList<>();
@@ -78,4 +52,14 @@ public class EntityConverter {
     }
     return accounts;
   }
+
+  private Account convertDtoToAccount(AccountDto accountDto) {
+    Account account = new Account();
+    account.setId(accountDto.getId());
+    account.setAccountNum(accountDto.getAccountNum());
+    account.setAccountType(accountDto.getAccountType());
+    account.setBalance(accountDto.getBalance());
+    return account;
+  }
+
 }
